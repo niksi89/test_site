@@ -90,10 +90,10 @@ section {
 .photo-card {
   background: #ffffff;
   border-radius: 20px;
-  padding: 14px;
+  overflow: hidden; /* 🔥 ВАЖНО */
   box-shadow: 0 8px 20px rgba(0,0,0,.08);
-  transition: transform .25s ease, box-shadow .25s ease;
 }
+
 
 .photo-card:hover {
   transform: translateY(-4px);
@@ -101,12 +101,9 @@ section {
 }
 
 .photo-card img {
+  display: block;
   width: 100%;
   height: auto;
-  max-height: 320px;
-  object-fit: contain; /* НЕ ОБРЕЗАЕТ */
-  border-radius: 14px;
-  background: #f2f6f4;
 }
 
 /* ===== FOOTER ===== */
