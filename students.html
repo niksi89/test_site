@@ -12,6 +12,10 @@
   --dark: #2f3a33;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: "Segoe UI", Arial, sans-serif;
@@ -19,72 +23,117 @@ body {
   color: var(--dark);
 }
 
-/* header */
+/* ===== HEADER ===== */
 header {
   background: linear-gradient(180deg, #dfeee6, #f6fbf8);
-  padding: 50px 20px;
+  padding: 60px 20px;
   text-align: center;
 }
 
 header h1 {
-  margin: 0;
-  font-size: 36px;
+  margin: 0 0 12px;
+  font-size: 38px;
 }
 
-/* nav */
+header p {
+  margin: 0 0 30px;
+  font-size: 18px;
+}
+
+/* ===== BUTTONS (как на главной) ===== */
+.btn {
+  display: inline-block;
+  margin: 10px;
+  padding: 14px 34px;
+  background: linear-gradient(135deg, #9bbfa8, #7fae95);
+  color: #2f3a33;
+  text-decoration: none;
+  border-radius: 40px;
+  font-weight: 600;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0,0,0,.15);
+}
+
+/* ===== NAV ===== */
 nav {
   background: #ffffff;
   border-bottom: 1px solid #e3ede8;
-  padding: 14px;
+  padding: 16px;
   text-align: center;
 }
 
 nav a {
-  margin: 0 14px;
-  text-decoration: none;
+  margin: 0 16px;
   color: var(--dark);
+  text-decoration: none;
   font-weight: 500;
 }
 
-/* gallery */
+/* ===== SECTION ===== */
 section {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: auto;
-  padding: 60px 20px;
+  padding: 70px 20px;
 }
 
+/* ===== GALLERY ===== */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
 }
 
-.gallery img {
+.photo-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.photo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0,0,0,.12);
+}
+
+.photo-card img {
   width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 16px;
-  transition: transform .3s ease, box-shadow .3s ease;
+  height: auto;
+  max-height: 320px;
+  object-fit: contain; /* НЕ ОБРЕЗАЕТ */
+  border-radius: 14px;
+  background: #f2f6f4;
 }
 
-.gallery img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 12px 30px rgba(0,0,0,.12);
-}
-
-/* footer */
+/* ===== FOOTER ===== */
 footer {
   background: #2f3a33;
   color: #eef4ef;
   text-align: center;
-  padding: 30px;
+  padding: 35px 20px;
   font-size: 14px;
 }
 
-/* mobile */
+/* ===== MOBILE ===== */
 @media (max-width: 600px) {
   header h1 {
-    font-size: 28px;
+    font-size: 30px;
+  }
+
+  header p {
+    font-size: 16px;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-card img {
+    max-height: none;
   }
 }
 </style>
@@ -94,21 +143,39 @@ footer {
 
 <header>
   <h1>Студенческий альбом</h1>
-  <p>Наши студенты и живая атмосфера обучения</p>
+  <p>Наши студенты, практика и выпускники</p>
+
+  <a href="index.html" class="btn">Главная</a>
+  <a href="students.html" class="btn">Студенческий альбом</a>
 </header>
 
 <nav>
   <a href="index.html">Главная</a>
-  <a href="album.html">Студенческий альбом</a>
+  <a href="students.html">Студенческий альбом</a>
 </nav>
 
 <section>
   <div class="gallery">
-  <img src="photos/students/std1.jpg">
-  <img src="photos/students/std2.jpg">
-  <img src="photos/students/std4.jpg">
-  <img src="photos/students/std5.jpg">>
-</div>
+
+    <div class="photo-card">
+      <img src="photos/students/student1.jpg" alt="Практика массажа">
+    </div>
+
+    <div class="photo-card">
+      <img src="photos/students/student2.jpg" alt="Выпускники курса">
+    </div>
+
+    <div class="photo-card">
+      <img src="photos/students/student3.jpg" alt="Обучение массажу">
+    </div>
+
+    <div class="photo-card">
+      <img src="photos/students/student4.jpg" alt="Сертификаты">
+    </div>
+
+    <!-- добавляй дальше по такому же шаблону -->
+
+  </div>
 </section>
 
 <footer>
