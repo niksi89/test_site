@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Студенческий альбом</title>
+
+<style>
+:root {
+  --bg: #f6fbf8;
+  --primary: #9bbfa8;
+  --dark: #2f3a33;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--dark);
+}
+
+/* header */
+header {
+  background: linear-gradient(180deg, #dfeee6, #f6fbf8);
+  padding: 50px 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 36px;
+}
+
+/* nav */
+nav {
+  background: #ffffff;
+  border-bottom: 1px solid #e3ede8;
+  padding: 14px;
+  text-align: center;
+}
+
+nav a {
+  margin: 0 14px;
+  text-decoration: none;
+  color: var(--dark);
+  font-weight: 500;
+}
+
+/* gallery */
+section {
+  max-width: 1100px;
+  margin: auto;
+  padding: 60px 20px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 16px;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 30px rgba(0,0,0,.12);
+}
+
+/* footer */
+footer {
+  background: #2f3a33;
+  color: #eef4ef;
+  text-align: center;
+  padding: 30px;
+  font-size: 14px;
+}
+
+/* mobile */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 28px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Студенческий альбом</h1>
+  <p>Наши студенты и живая атмосфера обучения</p>
+</header>
+
+<nav>
+  <a href="index.html">Главная</a>
+  <a href="album.html">Студенческий альбом</a>
+</nav>
+
+<section>
+  <div class="gallery">
+  <img src="photos/students/std1.jpg">
+  <img src="photos/students/std2.jpg">
+  <img src="photos/students/std4.jpg">
+  <img src="photos/students/std5.jpg">>
+</div>
+</section>
+
+<footer>
+  © 2026 Школа массажа Марины Заворотней
+</footer>
+
+</body>
+</html>
