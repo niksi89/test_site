@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Школа массажа Марины Заворотней</title>
+
+<style>
+:root {
+  --bg: #f6fbf8;
+  --primary: #9bbfa8;
+  --primary-soft: #e6f0ea;
+  --dark: #2f3a33;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--dark);
+  line-height: 1.7;
+}
+
+/* ===== HEADER ===== */
+header {
+  background: linear-gradient(180deg, #dfeee6, #f6fbf8);
+  padding: 90px 20px 110px;
+  text-align: center;
+}
+
+.logo-wrap {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  margin: 0 auto 35px;
+}
+
+.logo-wrap::before {
+  content: "";
+  position: absolute;
+  inset: -28px;
+  border-radius: 50%;
+  border: 2px dashed rgba(155,191,168,.6);
+  animation: spin 22s linear infinite;
+}
+
+.logo-wrap::after {
+  content: "";
+  position: absolute;
+  inset: -45px;
+  border-radius: 50%;
+  border: 2px solid rgba(242,210,122,.5);
+  animation: spinReverse 34s linear infinite;
+}
+
+.logo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes spinReverse { to { transform: rotate(-360deg); } }
+
+header h1 {
+  font-size: 44px;
+  margin: 0 0 18px;
+}
+
+header p {
+  font-size: 22px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 36px;
+  padding: 16px 38px;
+  background: linear-gradient(135deg, #9bbfa8, #7fae95);
+  color: var(--dark);
+  text-decoration: none;
+  border-radius: 40px;
+  font-weight: 600;
+}
+
+/* ===== NAV ===== */
+nav {
+  background: #fff;
+  border-bottom: 1px solid #e3ede8;
+  padding: 18px 10px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+nav a {
+  margin: 0 16px;
+  color: var(--dark);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* ===== SECTIONS ===== */
+section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 80px 20px;
+}
+
+h2 {
+  font-size: 36px;
+  margin-bottom: 30px;
+  border-left: 5px solid var(--primary);
+  padding-left: 16px;
+}
+
+/* ===== ABOUT ===== */
+.about {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+.card {
+  background: #fff;
+  padding: 36px;
+  border-radius: 18px;
+  border: 1px solid #e6f0ea;
+}
+
+/* ===== COURSES (FIXED, NO OVERLAP) ===== */
+.courses {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.slider {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 20px;
+}
+
+.course {
+  flex: 0 0 320px;
+  scroll-snap-align: start;
+}
+
+.course summary {
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  color: #3f6f5a;
+}
+
+.course summary small {
+  display: block;
+  font-size: 14px;
+  color: #6f9c87;
+}
+
+.course[open] {
+  flex: 0 0 100%;
+  margin-bottom: 40px;
+}
+
+.course[open] summary {
+  font-size: 22px;
+  margin-bottom: 24px;
+}
+
+/* ===== GALLERY ===== */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin: 30px 0;
+}
+
+.gallery img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+/* ===== QUOTE ===== */
+blockquote {
+  background: #eef6f1;
+  padding: 34px;
+  border-left: 5px solid var(--primary);
+  font-size: 21px;
+  margin: 0;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: #2f3a33;
+  color: #eef4ef;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 700px) {
+  .courses {
+    flex-direction: column;
+  }
+  .course,
+  .course[open] {
+    flex: 1 1 auto;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo-wrap">
+    <img src="logo.png" alt="Логотип школы массажа">
+  </div>
+  <h1>Школа массажа Марины Заворотней</h1>
+  <p>Пространство осознанного прикосновения и профессионального роста</p>
+  <a class="btn" href="#courses">Выбрать курс</a>
+</header>
+
+<nav>
+  <a href="#about">О школе</a>
+  <a href="#courses">Курсы</a>
+  <a href="#philosophy">Философия</a>
+  <a href="#contacts">Контакты</a>
+</nav>
+
+<section id="about">
+  <h2>О школе</h2>
+  <div class="about">
+    <div class="card">
+      <p>
+        Марина Заворотней — практикующий мастер массажа и преподаватель.
+        Методика школы основана на глубоком понимании тела,
+        уважении к клиенту и чистой технике.
+      </p>
+    </div>
+    <div class="card">
+      <ul>
+        <li>Практика с первого дня</li>
+        <li>Небольшие группы</li>
+        <li>Поддержка после обучения</li>
+        <li>Профессиональный рост</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="courses">
+  <h2>Курсы</h2>
+  <div class="courses slider">
+
+    <!-- КУРС 1 -->
+    <details class="card course">
+      <summary>ТОП МАСТЕР МАССАЖА с нуля<br><small>Коррекция фигуры и здоровье</small></summary>
+
+      <p><strong>Преображение руками: курс топ-мастера по массажу для фигуры и здоровья.</strong></p>
+
+      <p>
+        В мире, где стресс и статичный образ жизни стали нормой, профессия массажиста стала одной из самых востребованных.
+        Люди ищут не просто расслабление, а реальное решение проблем: снятие мышечных блоков, восстановление после нагрузок,
+        коррекцию фигуры и возвращение жизненного тонуса.
+      </p>
+
+      <p>
+        Этот курс — не просто обучение техникам. Это философия глубокой, осознанной работы с телом,
+        где мастер выступает как анатом, тренер и художник, формирующий новый силуэт.
+      </p>
+
+      <p><strong>Кому подойдёт курс:</strong></p>
+      <ul>
+        <li>Новичкам с нуля, желающим получить востребованную профессию</li>
+        <li>Специалистам бьюти и фитнес-сферы</li>
+        <li>Тем, кто хочет войти в профессию с сильным авторским методом</li>
+        <li>Всем, кто верит в силу прикосновения</li>
+      </ul>
+
+      <p><strong>Уникальность метода:</strong></p>
+      <p>
+        Основа метода — глубокая проработка мышц как фундамента красивой фигуры.
+        Работа с фасциями, лимфатической системой и метаболически активными тканями
+        позволяет запускать естественные процессы восстановления и коррекции.
+      </p>
+
+      <p><strong>Программа курса:</strong></p>
+      <ul>
+        <li>Анатомия и физиология</li>
+        <li>Массаж ШВЗ</li>
+        <li>Массаж спины, рук, головы</li>
+        <li>Общий классический массаж</li>
+        <li>Коррекция фигуры: лимфодренаж, антицеллюлитные техники, SPA-программы</li>
+      </ul>
+
+      <div class="gallery">
+        <img src="photos/photo_1_2026-01-12_22-28-09.jpg">
+        <img src="photos/photo_3_2026-01-12_22-28-09.jpg">
+      </div>
+
+      <p><strong>Стоимость:</strong> 55 000 ₽</p>
+      <p><strong>Преподаватели:</strong> Марина Заворотняя, Ирина Волкова</p>
+    </details>
+
+    <!-- КУРС 2 -->
+    <details class="card course">
+      <summary>Баночный массаж<br><small>2-дневный семинар (вакуумная терапия)</small></summary>
+
+      <p>
+        Баночный массаж — эффективная методика вакуумной терапии,
+        направленная на улучшение кровообращения, лимфодренажа
+        и восстановление тканей.
+      </p>
+
+      <div class="gallery">
+        <img src="photos/photo_2_2026-01-12_22-28-09.jpg">
+      </div>
+
+      <p><strong>Для кого подойдёт:</strong></p>
+      <ul>
+        <li>Специалистов в области массажа</li>
+        <li>Фитнес-тренеров</li>
+        <li>Всех, кто хочет помогать близким</li>
+      </ul>
+
+      <p><strong>Длительность:</strong> 2 дня</p>
+      <p><strong>Стоимость:</strong> 15 000 ₽</p>
+      <p><strong>Преподаватель:</strong> Марина Заворотняя</p>
+    </details>
+
+    <!-- КУРС 3 -->
+    <details class="card course">
+      <summary>Спортивный массаж<br><small>3-дневный семинар</small></summary>
+
+      <p>
+        Семинар посвящён восстановлению после интенсивных физических нагрузок,
+        работе с мышечным перенапряжением и профилактике травм.
+      </p>
+
+      <p><strong>Программа:</strong></p>
+      <ul>
+        <li>Анатомия</li>
+        <li>Массаж после тренировок</li>
+        <li>Восстановительный массаж</li>
+        <li>Миофасциальный релиз (МФР)</li>
+      </ul>
+
+      <p><strong>Для кого:</strong> специалисты массажа, wellness, тренеры</p>
+      <p><strong>Стоимость:</strong> 33 000 ₽</p>
+    </details>
+
+    <!-- КУРС 4 -->
+    <details class="card course">
+      <summary>Тейпирование<br><small>Кинезиотейпинг</small></summary>
+
+      <p>
+        Тейпирование — современная методика лечения, профилактики
+        и эстетической коррекции, широко применяемая в массаже и косметологии.
+      </p>
+
+      <p><strong>Преимущества:</strong></p>
+      <ul>
+        <li>Снятие болей в мышцах и суставах</li>
+        <li>Улучшение кровообращения и лимфотока</li>
+        <li>Коррекция овала лица и уменьшение отёков</li>
+        <li>Безопасность и отсутствие побочных эффектов</li>
+      </ul>
+
+      <p><strong>Вы научитесь:</strong></p>
+      <ul>
+        <li>Основам кинезиотейпирования</li>
+        <li>Мышечным, лимфодренажным и лифтинговым техникам</li>
+        <li>Комбинированию тейпирования с массажем</li>
+      </ul>
+
+      <p><strong>Стоимость:</strong> 15 000 ₽</p>
+      <p><strong>Преподаватель:</strong> Ирина Волкова</p>
+    </details>
+
+  </div>
+</section>
+
+<section id="philosophy">
+  <h2>Философия</h2>
+  <blockquote>
+    Мы учим не просто движениям —
+    мы учим слышать тело, уважать границы
+    и работать честно.
+  </blockquote>
+</section>
+
+<section id="contacts">
+  <h2>Контакты</h2>
+  <p>📍 Симферополь, проспект Победы, 5а</p>
+  <p>📞 +7 978 728-41-95</p>
+  <p>✉ info@massage-school.ru</p>
+<div style="margin-top:30px">
+    <p><strong>Мы в соцсетях:</strong></p>
+    <p>
+      🔹 <a href="https://t.me/telesno_massage" target="_blank">Telegram — Телесная школа массажа</a><br>
+      🔹 <a href="https://t.me/telesnooborudivanie" target="_blank">Telegram — Оборудование для массажа</a><br>
+      🔹 <a href="https://www.instagram.com/zavorotniaiamarina?igsh=MWZuaTg1dzNremJrcQ%3D%3D&utm_source=qr" target="_blank">Instagram — @zavorotniaiamarina</a>
+    </p>
+  </div>
+
+  <a class="btn" href="https://t.me/telesno_massage" target="_blank">Написать в Telegram</a>
+</section>
+
+</section>
+
+<footer>
+  © 2026 Школа массажа Марины Заворотней
+</footer>
+
+</body>
+</html>
