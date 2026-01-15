@@ -87,23 +87,19 @@ section {
   gap: 24px;
 }
 
-.photo-card {
-  background: #ffffff;
-  border-radius: 20px;
-  overflow: hidden; /* 🔥 ВАЖНО */
-  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+.photo-card{
+  background:#fff;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
 }
 
-
-.photo-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 30px rgba(0,0,0,.12);
-}
-
-.photo-card img {
-  display: block;
-  width: 100%;
-  height: auto;
+.photo-card img{
+  display:block;     /* убирает “базовую линию” и лишний низ */
+  width:100%;
+  height:auto;       /* высота подстраивается */
+  max-height:none;   /* если было — убираем ограничение */
+  object-fit:unset;  /* если было contain/cover — убираем */
 }
 
 /* ===== FOOTER ===== */
